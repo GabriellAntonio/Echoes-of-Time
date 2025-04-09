@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Fase 3 - Passado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background-color: #0b0b0b;
+      color: #00fff7;
+      font-family: 'Share Tech Mono', monospace;
+      text-align: center;
+      padding: 40px;
+    }
+    h1 {
+      font-size: 32px;
+      margin-bottom: 20px;
+    }
+    .diario {
+      background-color: #1a1a1a;
+      padding: 20px;
+      border: 1px solid #00fff7;
+      border-radius: 10px;
+      margin: 30px auto;
+      width: 80%;
+      max-width: 600px;
+    }
+    input[type="text"] {
+      padding: 10px;
+      width: 250px;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #00fff7;
+      background-color: #000;
+      color: #00fff7;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 2px solid #00fff7;
+      background-color: transparent;
+      color: #00fff7;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00fff7;
+      color: #0d0d0d;
+    }
+    #proximo {
+      display: none;
+      margin-top: 2rem;
+    }
+    .aviso {
+      margin-top: 10px;
+      color: red;
+      display: none;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+
+  <h1>Fase 3 - Passado</h1>
+
+  <div class="diario">
+    <p>Você encontra um diário antigo empoeirado. Em uma das páginas, está escrito:</p>
+    <blockquote><strong>"Yvahf ibpê é sbqn"</strong></blockquote>
+    <p>Abaixo da mensagem, há um bilhete dizendo:</p>
+    <p>"O Melhor decifrador de enigmas desse discord!"</p>
+	<p><em>Dica: Para decifrar use Cifra de César...</em><p>
+
+    <input type="text" id="resposta" placeholder="Digite a mensagem reveladora">
+    <div class="aviso" id="aviso">Mensagem incorreta. Tente novamente.</div>
+    <button onclick="verificarResposta()">Verificar</button>
+  </div>
+
+  <div id="proximo">
+    <p>✔ Verdade revelada. Um elo inquebrável foi restaurado no tempo.</p>
+    <button onclick="window.location.href='fase4-futuro.html'">Avançar para o Futuro</button>
+  </div>
+
+  <audio id="sucesso">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_30aa0b1f57.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+  </audio>
+  <audio autoplay loop>
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/01/audio_2c1dc69749.mp3?filename=dark-suspense-drone-ambient-background-141111.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function verificarResposta() {
+      const input = document.getElementById("resposta").value.trim().toLowerCase();
+      const correta = "linus você é foda";
+      if (input === correta) {
+        document.getElementById("proximo").style.display = "block";
+        document.getElementById("aviso").style.display = "none";
+        document.getElementById("sucesso").play();
+      } else {
+        document.getElementById("proximo").style.display = "none";
+        document.getElementById("aviso").style.display = "block";
+      }
+    }
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fase 4 - Futuro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #101010;
+      color: #00ffe1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .terminal {
+      background-color: #161616;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 12px #00ffe166;
+      width: 80%;
+      max-width: 600px;
+    }
+    .bloco {
+      font-size: 1.2rem;
+      margin: 0.8rem 0;
+      font-weight: bold;
+    }
+    input {
+      padding: 10px;
+      width: 240px;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #00ffe1;
+      background-color: #000;
+      color: #00ffe1;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 2px solid #00ffe1;
+      background-color: transparent;
+      color: #00ffe1;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ffe1;
+      color: #101010;
+    }
+    #proximo {
+      display: none;
+      margin-top: 2rem;
+    }
+    .aviso {
+      margin-top: 10px;
+      color: red;
+      display: none;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Fase 4 - Futuro</h1>
+  <div class="terminal">
+    <p>Terminal da estação: arquivos fragmentados encontrados.</p>
+    <div class="bloco">ARQ-001: ___ANCE</div>
+    <div class="bloco">ARQ-002: RET___</div>
+    <div class="bloco">ARQ-003: ___TURE</div>
+    <p>Pista: O tempo exige equilíbrio entre começo, meio e fim.</p>
+
+    <input type="text" id="resposta" placeholder="Digite a palavra-chave...">
+    <div class="aviso" id="aviso">Palavra incorreta, tente novamente.</div>
+    <button onclick="verificarResposta()">Verificar</button>
+  </div>
+
+  <div id="proximo">
+    <p>✔ Fragmentos reagrupados. Dados temporais restaurados!</p>
+    <button onclick="window.location.href='fase5-passado.html'">Avançar para o Passado</button>
+  </div>
+
+  <audio id="sucesso">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_30aa0b1f57.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function verificarResposta() {
+      const valor = document.getElementById("resposta").value.trim().toLowerCase();
+      if (valor === "future") {
+        document.getElementById("proximo").style.display = "block";
+        document.getElementById("aviso").style.display = "none";
+        document.getElementById("sucesso").play();
+      } else {
+        document.getElementById("proximo").style.display = "none";
+        document.getElementById("aviso").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>

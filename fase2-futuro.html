@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fase 2 - Futuro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #101010;
+      color: #00ffe1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+    .enigma {
+      background-color: #191919;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 10px #00ffe1;
+      margin-bottom: 1rem;
+      max-width: 600px;
+    }
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+      width: 260px;
+      border-radius: 8px;
+      border: 1px solid #00ffe1;
+      background-color: #000;
+      color: #00ffe1;
+    }
+    button {
+      margin-top: 1rem;
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      background-color: transparent;
+      border: 2px solid #00ffe1;
+      color: #00ffe1;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ffe1;
+      color: #000;
+    }
+    #proximo {
+      display: none;
+      margin-top: 2rem;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Fase 2 - Futuro</h1>
+  <div class="enigma">
+    <p>Você acorda em um quarto antigo. Sobre a mesa, um bilhete amarelado com a seguinte mensagem:</p>
+    <blockquote><strong>"Sou o primeiro da semana, mas apenas se ela começar no domingo."</strong></blockquote>
+    <p>Digite a resposta correta para desbloquear o terminal:</p>
+    <input type="text" id="resposta" placeholder="Digite a palavra...">
+    <br>
+    <button onclick="verificarResposta()">Verificar</button>
+  </div>
+
+  <div id="proximo">
+    <p>✔ Enigma resolvido! O terminal de comunicação foi reativado.</p>
+    <button onclick="window.location.href='fase3-passado.html'">Avançar para o Passado</button>
+  </div>
+
+  <audio id="sucesso">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_30aa0b1f57.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function verificarResposta() {
+      const resposta = document.getElementById("resposta").value.trim().toLowerCase();
+      if (resposta === "domingo") {
+        document.getElementById("proximo").style.display = "block";
+        document.getElementById("sucesso").play();
+      } else {
+        alert("Resposta incorreta. Tente novamente!");
+      }
+    }
+  </script>
+</body>
+</html>

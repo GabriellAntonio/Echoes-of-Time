@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fase 5 - Passado</title>
+  <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Share Tech Mono', monospace;
+      background-color: #0c0c0c;
+      color: #00ffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    h1 {
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .cenario {
+      background-color: #151515;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 0 12px #00ffcc66;
+      width: 80%;
+      max-width: 600px;
+    }
+    input {
+      padding: 10px;
+      width: 260px;
+      font-size: 16px;
+      margin-top: 15px;
+      border-radius: 8px;
+      border: 1px solid #00ffcc;
+      background-color: #000;
+      color: #00ffcc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: 2px solid #00ffcc;
+      background-color: transparent;
+      color: #00ffcc;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #00ffcc;
+      color: #000;
+    }
+    #proximo {
+      display: none;
+      margin-top: 2rem;
+    }
+    .aviso {
+      margin-top: 10px;
+      color: red;
+      display: none;
+    }
+    audio { display: none; }
+  </style>
+</head>
+<body>
+  <h1>Fase 5 - Passado</h1>
+  <div class="cenario">
+    <p>Você está de volta ao quarto original.</p>
+    <p>Uma mensagem está gravada no espelho embaçado:</p>
+    <blockquote><strong>"A resposta está onde o tempo se dobra."</strong></blockquote>
+    <p>Insira a palavra correta para encerrar o ciclo temporal:</p>
+    <input type="text" id="resposta" placeholder="Digite a resposta final">
+    <div class="aviso" id="aviso">Resposta incorreta, tente novamente.</div>
+    <button onclick="verificarResposta()">Verificar</button>
+  </div>
+
+  <div id="proximo">
+    <p>✔ Você deita na cama. O mundo gira...</p>
+    <button onclick="window.location.href='vitoria.html'">Acordar no seu tempo</button>
+  </div>
+
+  <audio id="sucesso">
+    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_30aa0b1f57.mp3?filename=success-1-6297.mp3" type="audio/mpeg">
+  </audio>
+
+  <script>
+    function verificarResposta() {
+      const valor = document.getElementById("resposta").value.trim().toLowerCase();
+      if (valor === "paradoxo") {
+        document.getElementById("proximo").style.display = "block";
+        document.getElementById("aviso").style.display = "none";
+        document.getElementById("sucesso").play();
+      } else {
+        document.getElementById("proximo").style.display = "none";
+        document.getElementById("aviso").style.display = "block";
+      }
+    }
+  </script>
+</body>
+</html>
